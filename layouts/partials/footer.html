@@ -1,0 +1,20 @@
+<!-- Footer -->
+<footer id="footer">
+    {{ if .Site.Data.footer.social_icons }}
+        <ul class="icons">
+            {{ range $item := .Site.Data.footer.social_icons }}
+                <li><a href="{{ $item.url }}" class="icon {{ $item.icon }}"><span class="label">{{ $item.title }}</span></a></li>
+            {{ end }}
+        </ul>
+    {{ end }}
+    {{ if .Site.Data.footer.copyright }}
+        <p class="copyright">
+            {{ .Site.Data.footer.copyright | safeHTML }}
+            &nbsp;
+            {{ range $link := .Site.Data.footer.links }}
+            <a href="{{ $link.url }}" {{ if $link.new_window }}target="_blank" rel="noopener"
+               {{ end }}>{{ $link.text }}</a>.
+            {{ end }}
+        </p>
+    {{ end }}
+</footer>
